@@ -32,6 +32,17 @@ body:
 
   - type: textarea
     attributes:
+      label: Output stacktrace
+      description: |
+        Stacktrace is most needle information.
+        If you have a stacktrace, put it.
+      placeholder: |
+        Put your stacktrace...
+    validations:
+      required: false
+
+  - type: textarea
+    attributes:
       label: Version
       description: |
         Provide the git commit or the version
