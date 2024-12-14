@@ -1,0 +1,62 @@
+plugins {
+    id 'java-library'
+}
+
+configurations {
+    include
+    implementation.extendsFrom(include)
+    compileOnly.extendsFrom(pluginImpl)
+}
+
+repositories {
+    maven {
+        name = "Jitpack"
+        url = "https://jitpack.io/"
+    }
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+
+    compileOnly libs.jetbrains.annotations
+    annotationProcessor libs.jetbrains.annotations
+
+    testImplementation libs.junit.jupiter
+    testRuntimeOnly libs.junit.platform
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-Xlint'
+    options.compilerArgs << '-Xmaxerrs' << '10000'
+    options.compilerArgs << '-Xmaxwarns' << '10000'
+    options.compilerArgs << '-Xdiags:verbose'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(properties.getOrDefault("java_version", 8) as int)
+compileJava.sourceCompatibility = compileJava.targetCompatibility = properties.getOrDefault("java_version", 8)
+
+jar {
+    dependsOn(processResources)
+
+    enabled = true
+}
+
+tasks.withType(Copy).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+tasks.withType(Tar).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+tasks.withType(Zip).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+tasks.withType(Jar).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
