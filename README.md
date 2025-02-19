@@ -1,3 +1,3 @@
-# Akazukin Utils Library
+# Akazukin Event Library
 
-Utils, I18n, Event, Streamなどを提供するライブラリ
+イベントマネージャー を提供するライブラリ
