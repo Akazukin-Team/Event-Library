@@ -1,12 +1,13 @@
 package org.akazukin.event;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public abstract class EventManager<E> {
@@ -82,7 +83,7 @@ public abstract class EventManager<E> {
                             try {
                                 hook.getMethod().invoke(hook.getEventClass(), event);
                             } catch (final Throwable t) {
-                                log.error("An error occurred while processing the EventFlag, " + event.getClass().getSimpleName() + ":" + libraryPriority, t);
+                                log.error("An error occurred while processing the EventFlag, " + event.getClass().getSimpleName() + " Priority:" + libraryPriority, t);
                             }
                         }));
     }

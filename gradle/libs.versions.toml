@@ -1,24 +1,17 @@
 [versions]
 #App deps
-akz = "1.0.0"
 lombok = "1.18.34"
-gson = "2.10.1"
-doma = "2.60.1"
 slf4j = "2.0.16"
-jetbrains-annotation = "25.0.0"
+jetbrains-annotation = "26.0.2"
 
 #Test Modules
-junit-jupiter = "5.11.0-M2"
+junit-jupiter = "5.12.0-RC2"
 
 
 
 [libraries]
 #App deps
-akz = { module = "org.akazukin:util", version.ref = "akz" }
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
-gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
-doma-core = { module = "org.seasar.doma:doma-core", version.ref = "doma" }
-doma-processor = { module = "org.seasar.doma:doma-processor", version.ref = "doma" }
 slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 jetbrains-annotations = { module = "org.jetbrains:annotations", version.ref = "jetbrains-annotation" }
 
