@@ -5,7 +5,6 @@ plugins {
 }
 
 dependencies {
-    implementation libs.akz
     api libs.slf4j
 }
 
