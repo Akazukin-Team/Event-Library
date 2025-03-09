@@ -1,6 +1,6 @@
 plugins {
     id 'java-library'
-    id "com.github.ben-manes.versions"
+    id 'com.github.ben-manes.versions'
 }
 
 configurations {
@@ -11,8 +11,8 @@ configurations {
 
 repositories {
     maven {
-        name = "Jitpack"
-        url = "https://jitpack.io/"
+        name = 'Jitpack'
+        url = 'https://jitpack.io/'
     }
     mavenCentral()
 }
@@ -30,11 +30,11 @@ tasks.withType(JavaCompile).configureEach {
         compilerArgs << '-Xmaxwarns' << '10000'
         compilerArgs << '-Xdiags:verbose'
     }
-    it.sourceCompatibility = it.targetCompatibility = properties.getOrDefault("java_version", 8)
+    it.sourceCompatibility = it.targetCompatibility = properties.getOrDefault('java_version', 8)
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(properties.getOrDefault("java_version", 8) as int)
-compileJava.sourceCompatibility = compileJava.targetCompatibility = properties.getOrDefault("java_version", 8)
+java.toolchain.languageVersion = JavaLanguageVersion.of(properties.getOrDefault('java_version', 8) as int)
+compileJava.sourceCompatibility = compileJava.targetCompatibility = properties.getOrDefault('java_version', 8)
 
 tasks.withType(Javadoc).configureEach {
     configure(options) {
