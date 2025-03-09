@@ -39,7 +39,8 @@ jobs:
       - name: Build and Test
         run: ./gradlew build test
 
-      - name: Upload artifacts to GPR
-        run: ./gradlew publishMavenPublicationToGprRepository -Dorg.gradle.unsafe.configuration-cache=false
+      - name: Publish to Nexus
+        run: ./gradlew publishReleasePublicationToTeamReleasesRepository -Dorg.gradle.unsafe.configuration-cache=false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}

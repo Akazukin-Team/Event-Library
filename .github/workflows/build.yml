@@ -6,9 +6,6 @@ on:
   push:
     branches:
       - 'main'
-  pull_request:
-    branches:
-      - 'main'
 
 
 env:
@@ -45,11 +42,8 @@ jobs:
       - name: Build and Test
         run: ./gradlew build test
 
-      - name: Publish to maven local
-        run: ./gradlew publishToMavenLocal
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: artifact
-          path: publish/build/libs/
+      - name: Publish to Nexus
+        run: ./gradlew publishSnapshotPublicationToTeamSnapshotsRepository -Dorg.gradle.unsafe.configuration-cache=false
+        env:
+          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}

@@ -24,4 +24,3 @@ jar {
 tasks.withType(Jar).configureEach {
     manifest = jar.manifest
 }
-
