@@ -2,7 +2,9 @@ name: Build application and test
 
 
 on:
-  push:
+  pull_request:
+    branches:
+      - 'main'
 
 
 env:
