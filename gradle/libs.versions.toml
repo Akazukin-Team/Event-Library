@@ -7,6 +7,9 @@ jetbrains-annotation = "26.0.2"
 #Test Modules
 junit-jupiter = "5.12.0"
 
+#Gradle Plugin
+gradle-versions = "0.51.0"
+
 
 
 [libraries]
@@ -18,3 +21,6 @@ jetbrains-annotations = { module = "org.jetbrains:annotations", version.ref = "j
 #Test Modules
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
 junit-platform = { module = "org.junit.platform:junit-platform-launcher" }
+
+#Gradle Plugin
+gradle-versions = { module = "com.github.ben-manes:gradle-versions-plugin", version.ref = "gradle-versions" }
