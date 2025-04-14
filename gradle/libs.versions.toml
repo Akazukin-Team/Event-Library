@@ -5,7 +5,7 @@ slf4j = "2.0.17"
 jetbrains-annotation = "26.0.2"
 
 #Test Modules
-junit-jupiter = "5.12.0"
+junit-jupiter = "5.12.2"
 
 #Gradle Plugin
 gradle-versions = "0.51.0"
