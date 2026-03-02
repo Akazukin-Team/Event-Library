@@ -1,5 +1,6 @@
 package org.akazukin.event;
 
-public interface Listenable {
+@FunctionalInterface
+public interface IListenable {
     boolean handleEvents();
 }

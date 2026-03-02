@@ -1,4 +1,4 @@
-package org.akazukin.event;
+package org.akazukin.event.event;
 
 public interface ICancellableEvent extends IEvent {
     boolean isCancelled();

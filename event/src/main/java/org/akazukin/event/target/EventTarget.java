@@ -1,4 +1,4 @@
-package org.akazukin.event;
+package org.akazukin.event.target;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -8,7 +8,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface EventTarget {
-
     boolean ignoreCondition() default false;
 
     boolean ignoreSuperClasses() default true;
