@@ -2,7 +2,7 @@
 #App deps
 lombok = "1.18.36"
 slf4j = "2.0.17"
-jetbrains-annotation = "26.0.2"
+jetbrains-annotation = "26.1.0"
 
 #Test Modules
 junit-jupiter = "5.12.0"
