@@ -1,4 +1,4 @@
-name: Publish to GPR
+name: Publish release to Repository
 
 on:
   release:
@@ -6,11 +6,11 @@ on:
 
 
 env:
-  JDK_VERSION: 8
+  JDK_VERSION: 24
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
 
     permissions:
       contents: read
@@ -18,17 +18,17 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.gradle
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
           restore-keys: ${{ runner.os }}-gradle
 
       - name: Setup JDK ${{ env.JDK_VERSION }}
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           java-version: ${{ env.JDK_VERSION }}
           distribution: 'adopt'
@@ -36,11 +36,14 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
+      - name: Clean cache
+        run: ./gradlew clean
+
       - name: Build and Test
-        run: ./gradlew build test
+        run: ./gradlew build check
 
       - name: Publish to Nexus
-        run: ./gradlew publishReleasePublicationToTeamReleasesRepository -Dorg.gradle.unsafe.configuration-cache=false
+        run: ./gradlew publishReleasePublicationToReleasesRepository publishSnapshotPublicationToSnapshotsRepository -Dorg.gradle.unsafe.configuration-cache=false
         env:
-          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
-          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+          REPOSITORY_USERNAME: ${{ secrets.NEXUS_COMMON_PLAIN_USERNAME }}
+          REPOSITORY_PASSWORD: ${{ secrets.NEXUS_COMMON_PLAIN_PASSWORD }}

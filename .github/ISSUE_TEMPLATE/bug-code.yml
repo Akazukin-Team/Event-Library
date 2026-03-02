@@ -7,50 +7,63 @@ body:
     attributes:
       label: Basic Troubleshooting
       description: |-
-        Make sure you have checked the following first.
-        If you don't think it's applicable to your issue, you may check the box.
+        Please confirm you've gone through the following steps before submitting your report.
+        If you believe an item does not apply to your issue, you may check the box regardless.
       options:
-        - label: I have checked for no similar issues, and my issue is not a duplicate. (Check closed issues as well)
+        - label: I have checked and confirmed that no similar issues exist, and my issue is not a duplicate (including closed issues).
           required: true
-        - label: I have checked for no pull requests that may already address my issue.
+        - label: I have ensured no existing pull requests potentially address my issue.
           required: true
-        - label: I am using the latest version
+        - label: I am using the latest version.
           required: true
-        - label: I have confirmed that my issue is reproducible with the minimum viable code
+        - label: I have verified that my issue is reproducible with minimal, viable code.
           required: true
 
   - type: textarea
     attributes:
       label: Describe the bug and how to replicate it
       description: |
-        Video is always useful.
-        A minimally reproducible description is best.
+        Provide a clear step-by-step description of how to reproduce the issue.
+        Attaching a video is highly helpful if applicable.
       placeholder: |
         Step 1. Do this
         Step 2. Then do this
-        Step 3. etc...
+        Step 3: And so on...
     validations:
       required: true
 
   - type: textarea
     attributes:
-      label: reproducible it with the minimum code
+      label: Describe the Expected Behavior
       description: |
-        A code or repository url to reproduce your issue
-        A minimally reproducible description is best.
+        Clearly explain the expected behavior so the reviewer can easily understand the correct outcome.
+        If there are visual changes, providing videos or screenshots will be highly helpful.
       placeholder: |
-        public class Main...
+        Step 1. Do this
+        Step 2. Then do this
+        Step 3: And so on...
     validations:
       required: true
 
   - type: textarea
     attributes:
-      label: Output stacktrace
+      label: Provide reproducible code or repository link
       description: |
-        Stacktrace is most needle information.
-        If you have a stacktrace, put it.
+        Include a code snippet or a repository URL that reproduces the problem.
+        A minimal, reproducible example is best.
       placeholder: |
-        Put your stacktrace...
+        public class Main {...   or   https://github.com/...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Output Stacktrace
+      description: |
+        Provide the stack trace, if available.
+        A stack trace is often crucial for identifying the issue.
+      placeholder: |
+        Paste your stack trace here...
     validations:
       required: false
 
@@ -58,7 +71,8 @@ body:
     attributes:
       label: Version
       description: |
-        Provide the git commit-hash or the version
-      placeholder: A example would be commit-hash 845f8d5 or 845f8d528ff13efb7902563bd3e73bb08c8284ca, or version 1.0.0
+        Specify the version or Git commit hash where the issue occurs.
+      placeholder: |
+        An example might be `commit hash: 845f8d5` or `845f8d528ff13efb7902563bd3e73bb08c8284ca`, or `version: 1.0.0`.
     validations:
       required: true
