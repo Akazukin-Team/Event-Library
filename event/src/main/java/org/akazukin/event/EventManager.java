@@ -152,7 +152,7 @@ public class EventManager<T> {
     }
 
     /**
-     * Invokes all registered event listeners for a specific event type and priority.
+     * Invokes all registered event listeners for a specific event type and library priority.
      * It filters the registered event hooks based on the event type, library priority,
      * and listener conditions before invoking the corresponding method.
      *
