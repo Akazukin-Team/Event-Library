@@ -137,7 +137,22 @@ public class EventManager<T> {
     }
 
     /**
-     * Invokes all registered event listeners for a specific event type and priority.
+     * Invokes all registered event listeners for a specific event type.
+     * It filters the registered event hooks based on the event type, library priority,
+     * and listener conditions before invoking the corresponding method.
+     *
+     * @param <U>   the event type.
+     * @param clazz the {@link Class} instance representing the event type.
+     *              This is used as a key to match the registered listeners.
+     * @param event the event instance of type {@code E} to be passed to the listener methods.
+     *              The listeners are invoked with this event as an argument.
+     */
+    public <U extends T> void callEvent(final Class<U> clazz, final U event) {
+        this.callEvent(clazz, event, 0);
+    }
+
+    /**
+     * Invokes all registered event listeners for a specific event type and library priority.
      * It filters the registered event hooks based on the event type, library priority,
      * and listener conditions before invoking the corresponding method.
      *
